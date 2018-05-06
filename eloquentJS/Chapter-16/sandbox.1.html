@@ -1,0 +1,27 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>My home page</title>
+    <link rel="stylesheet" href="./game.css">
+    <script type="text/javascript" src="./game.js"></script>
+    <script type = "text/javascript" src="./game_levels.js"></script>
+  </head>
+
+  <body>
+    <canvas></canvas>
+    <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      cx.beginPath();
+      cx.moveTo(10, 90);
+      // control1=(10, 10) control2=(90, 10) goal=(50,90);
+      cx.bezierCurveTo(10, 10, 90, 90, 90, 90);
+      cx.lineTo(90, 10);
+      cx.lineTo(10, 10);
+      cx.closePath();
+      cx.stroke();
+
+      
+    </script>
+  </body>
+</html>

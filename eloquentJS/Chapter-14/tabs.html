@@ -1,0 +1,75 @@
+<!-- A tabbed interface is a common design pattern. It allows you to select an interface panel by choosing from a number of tabs “sticking out” above an element.
+
+In this exercise you’ll implement a simple tabbed interface. Write a function, asTabs, that takes a DOM node and creates a tabbed interface showing the child elements of that node. It should insert a list of <button> elements at the top of the node, one for each child element, containing text retrieved from the data-tabname attribute of the child. All but one of the original children should be hidden (given a display style of none), and the currently visible node can be selected by clicking the buttons.
+
+When it works, extend it to also style the currently active button differently. -->
+
+
+<!doctype html>
+<html>
+  <head>
+    <title>Tabs</title>
+  </head>
+    <body>
+        <div id="wrapper">
+            <div data-tabname="one">Tab one</div>
+            <div data-tabname="two">Tab two</div>
+            <div data-tabname="three">Tab three</div>
+
+          </div>
+        <script>
+            function asTabs(node) {
+              var children = node.children;
+              var buttons = [];
+              var views = document.querySelectorAll("div[data-tabname]"); // array of views
+
+              // Hide views when asTabs runs
+              for (var i = 0; i < views.length; i ++) {
+                views[i].style.display = "none";
+              }
+              
+              // Show the clicked element (from views) and hide the rest.
+              function show(clicked) {
+                var newView = document.querySelector("div[data-tabname=" + clicked + "]")
+                for (var i = 0; i < views.length; i ++) {
+                  views[i].style.display = "none";
+                }
+                newView.style.display = "block";
+              }
+
+              // Highlight the button that was clicked to show the current view.
+              function highlight(clickedBtn) {
+                for (var i = 0; i < buttons.length; i ++) {
+                  buttons[i].style.background = ""
+                }
+                clickedBtn.style.background = "yellow"
+
+              }
+
+              // Display buttons and add event listeners.
+              for (var i = 0; i < children.length; i ++) {
+                //Create the buttons
+                var button = document.createElement("button");
+                button.className = "tab-btn";
+                button.id = "tab-" + children[i].attributes["data-tabname"].value + "-btn";
+                button.textContent = children[i].attributes["data-tabname"].value;
+
+                // Add click listeners to buttons that call show on the view connected to the clicked button and highlight the button clicked.
+                button.addEventListener("click", function(event) {
+                  var clicked = event.target.textContent;
+                  var clickedBtn = document.getElementById(event.target.id);
+                  show(clicked);
+                  highlight(clickedBtn);
+                })
+                buttons.push(button);
+              }
+
+              // Insert buttons in order before view divs          
+              for (var i = (buttons.length - 1); i >= 0; i --) {
+                node.prepend(buttons[i]);
+              }
+            }
+            asTabs(document.querySelector("#wrapper"));
+          </script>
+    </body>
+</html>

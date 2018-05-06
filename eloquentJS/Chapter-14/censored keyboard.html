@@ -1,0 +1,19 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>Censored Keyboard</title>
+  </head>
+    <body>
+        <input type="text">
+        <script>
+            var field = document.querySelector("input");
+            field.addEventListener("keydown", function(event) {
+                key = event.key;
+                if (key == "q" || key == "w" || key == "x") {
+                    event.preventDefault();
+                }
+            })
+        </script>
+    </body>
+</html>
