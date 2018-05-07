@@ -1,0 +1,14 @@
+#word-container {
+    margin: 50%;
+    color: black;
+    font-size: 75px;
+    display: inline;
+}
+.word-chunk {
+    display: inline;
+    user-select: all;
+}
+
+.word-chunk::selection{
+    background: grey;
+}
