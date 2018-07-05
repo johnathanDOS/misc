@@ -60,3 +60,14 @@ Codebuddies Greetbot
 * Forked Greetbot repository and learned how to submit a pull request.
 * Set up local repository for greetbot app to communicate with personal slack workspace.
 * Comms on issue #62 regarding how to avoid duplicating other contributer's work
+
+## 7/4/2018
+
+DITA
+
+* Registered at [https://www.learningdita.com/](https://www.learningdita.com/)
+* Finished Lesson 1 in Introduction to DITA course
+* Set new goals for professional development:
+  * Learn DITA standard
+  * Learn about REST APIs (finish O'Reilly's REST APIs book started earlier this year)
+  * Read Docs Like Code
